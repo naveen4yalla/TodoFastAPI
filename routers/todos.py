@@ -25,7 +25,7 @@ db_dependency = Annotated[Session,Depends(get_db)]
 
 class TodoRequest(BaseModel):
     title:str = Field(minlength = 3)
-    descrption: str = Field(minlength=3 , max_length=100)
+    description: str = Field(minlength=3 , max_length=100)
     priority: int = Field(gt = 0, lt = 6 )
     complete: bool
     
@@ -53,9 +53,9 @@ async def update(db:db_dependency,todo_request:TodoRequest,todo_id:int = Path(gt
     if todo_model is None:
         raise HTTPException(status_code=404,detail = 'Todo not Found')
     todo_model.title = todo_request.title
-    todo_model.descrption = todo_request.descrption
+    todo_model.description = todo_request.description
     todo_model.priority = todo_request.priority
-    todo_model.comp = todo_request.complete
+    todo_model.complete = todo_request.complete
     
     db.add(todo_model)
     db.commit()
