@@ -4,6 +4,12 @@ A small REST API for managing to-do items, built with FastAPI and SQLAlchemy ove
 
 > This project was built while following a FastAPI course, as a hands-on way to learn the framework. It is a learning/portfolio project rather than a production service.
 
+## Screenshots
+
+FastAPI auto-generates interactive Swagger documentation at `/docs`:
+
+![Interactive API docs (Swagger UI)](docs/screenshots/api-docs.png)
+
 ## What it does
 
 - Create user accounts with hashed passwords (bcrypt).
